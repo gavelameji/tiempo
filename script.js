@@ -16,7 +16,7 @@ async function getWeather(city, lat, lon) {
         weatherElement.classList.add('weather-card');
         weatherElement.innerHTML = `
           <h3>${city}</h3>
-          <img src=src/${data.current_weather.weathercode}.png></img>
+          <img src="src/${data.current_weather.weathercode}.png" onclick="window.location.href='prevision.html?city=${city}&lat=${lat}&lon=${lon}'" />
           <p>${data.current_weather.temperature}°C</p>
           <p>Viento: ${data.current_weather.windspeed} km/h</p>
         `;
