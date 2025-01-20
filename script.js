@@ -18,13 +18,22 @@ async function getWeather(city, lat, lon) {
           <h3>${city}</h3>
           <img src="src/${data.current_weather.weathercode}.png" onclick="window.location.href='prevision.html?city=${city}&lat=${lat}&lon=${lon}'" />
           <p>${data.current_weather.temperature}°C</p>
-          <p>Viento: ${data.current_weather.windspeed} km/h</p>
+          <p>Viento: ${data.current_weather.windspeed} km/h, ${getWindDirectionCardinal(data.current_weather.winddirection)}</p>
         `;
 
         document.getElementById('weather-list').appendChild(weatherElement);
     } catch (error) {
         console.error("Error al obtener el clima:", error);
     }
+}
+
+function getWindDirectionCardinal(winddirection) {
+    const directions = [
+        "N",  "NE", "E",  "SE",
+        "S",  "SO", "O",  "NO"
+    ];
+    const index = Math.round(winddirection / 45) % 8;
+    return directions[index];
 }
 
 
