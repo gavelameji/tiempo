@@ -4,10 +4,8 @@ async function getWeatherForecast(city, lat, lon) {
         const data = await response.json();
 
         const forecastElement = document.createElement('div');
-        forecastElement.classList.add('prevision-dia');
-        
-        let forecastHTML = `<h3>Previsión para ${city}</h3>`;
-        
+        forecastElement.classList.add('forecast-container');
+        let forecastHTML = "";
         data.daily.time.forEach((date, index) => {
             forecastHTML += `
                 <div class="prevision-dia">
@@ -31,6 +29,7 @@ const lat = params.get('lat');
 const lon = params.get('lon');
 
 if (city && lat && lon) {
+    document.getElementById('city-name').innerText = `Previsión para ${city}`;
     console.log(`Ciudad: ${city}, Latitud: ${lat}, Longitud: ${lon}`);
     getWeatherForecast(city, lat, lon);
 } else {
