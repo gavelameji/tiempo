@@ -85,7 +85,7 @@ footer {
 }
 
 .forecast-container::-webkit-scrollbar-thumb {
-    background: #888; /* Color del scroll */
+    background: #888; 
 }
 
 
@@ -95,13 +95,19 @@ footer {
 }
 
 .prevision-dia {
-    flex: 0 0 auto; /* Evita que los elementos se expandan o contraigan */
+    flex: 0 0 auto; 
     background-color: #1100ff;
     color:gold;
     border-radius: 20px;
     padding: 10px;
     text-align: center;
-    width: 250px; /* Ancho fijo para los elementos */
-    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
-    scroll-snap-align: start; /* Para alineación de scroll suave */
+    width: 250px; 
+    box-sizing: border-box; 
+    scroll-snap-align: start;
+}
+
+.loading {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
 }

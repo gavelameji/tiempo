@@ -1,30 +1,105 @@
-const cities = [
-    'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 
-    'Ávila', 'Badajoz', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 
-    'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Huelva', 'Huesca', 'Jaén', 'León', 'Lleida', 'Lugo', 'Madrid', 'Málaga', 
-    'Murcia', 'Navarra', 'Ourense', 'Palencia', 'Las Palmas', 'Pontevedra', 'Salamanca', 'Segovia', 'Sevilla', 'Soria', 
-    'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza'
-];
+const coordinates = {
+    "Madrid": { lat: 40.4168, lon: -3.7038 },
+    "Barcelona": { lat: 41.3851, lon: 2.1734 },
+    "Valencia": { lat: 39.4699, lon: -0.3763 },
+    "Sevilla": { lat: 37.3886, lon: -5.9823 },
+    "Zaragoza": { lat: 41.6488, lon: -0.8891 },
+    "Málaga": { lat: 36.7213, lon: -4.4214 },
+    "Murcia": { lat: 37.9922, lon: -1.1307 },
+    "Palma": { lat: 39.5696, lon: 2.6502 },
+    "Las Palmas de Gran Canaria": { lat: 28.1235, lon: -15.4363 },
+    "Bilbao": { lat: 43.2630, lon: -2.9350 },
+    "Alicante": { lat: 38.3452, lon: -0.4810 },
+    "Córdoba": { lat: 37.8882, lon: -4.7794 },
+    "Valladolid": { lat: 41.6523, lon: -4.7245 },
+    "Vigo": { lat: 42.2406, lon: -8.7207 },
+    "Gijón": { lat: 43.5450, lon: -5.6611 },
+    "L'Hospitalet de Llobregat": { lat: 41.3662, lon: 2.1165 },
+    "A Coruña": { lat: 43.3623, lon: -8.4115 },
+    "Vitoria-Gasteiz": { lat: 42.8467, lon: -2.6717 },
+    "Granada": { lat: 37.1765, lon: -3.5979 },
+    "Elche": { lat: 38.2699, lon: -0.7126 },
+    "Oviedo": { lat: 43.3603, lon: -5.8448 },
+    "Santa Cruz de Tenerife": { lat: 28.4682, lon: -16.2546 },
+    "Badalona": { lat: 41.4500, lon: 2.2474 },
+    "Cartagena": { lat: 37.6051, lon: -0.9862 },
+    "Terrassa": { lat: 41.5615, lon: 2.0089 },
+    "Jerez de la Frontera": { lat: 36.6850, lon: -6.1261 },
+    "Sabadell": { lat: 41.5463, lon: 2.1086 },
+    "Móstoles": { lat: 40.3223, lon: -3.8640 },
+    "Alcalá de Henares": { lat: 40.4819, lon: -3.3635 },
+    "Pamplona": { lat: 42.8125, lon: -1.6458 },
+    "Fuenlabrada": { lat: 40.2839, lon: -3.7940 },
+    "Almería": { lat: 36.8340, lon: -2.4637 },
+    "San Sebastián": { lat: 43.3213, lon: -1.9853 },
+    "Leganés": { lat: 40.3286, lon: -3.7635 },
+    "Burgos": { lat: 42.3439, lon: -3.6969 },
+    "Santander": { lat: 43.4623, lon: -3.8099 },
+    "Castellón de la Plana": { lat: 39.9864, lon: -0.0513 },
+    "Getafe": { lat: 40.3083, lon: -3.7325 },
+    "Alcorcón": { lat: 40.3468, lon: -3.8278 },
+    "San Cristóbal de La Laguna": { lat: 28.4874, lon: -16.3159 },
+    "Logroño": { lat: 42.4669, lon: -2.4457 },
+    "Badajoz": { lat: 38.8794, lon: -6.9706 },
+    "Huelva": { lat: 37.2614, lon: -6.9447 },
+    "Salamanca": { lat: 40.9701, lon: -5.6635 },
+    "Marbella": { lat: 36.5101, lon: -4.8824 },
+    "Lleida": { lat: 41.6176, lon: 0.6200 },
+    "Tarragona": { lat: 41.1189, lon: 1.2445 },
+    "León": { lat: 42.5987, lon: -5.5671 },
+    "Cádiz": { lat: 36.5164, lon: -6.2994 },
+    "Jaén": { lat: 37.7796, lon: -3.7849 },
+    "Ourense": { lat: 42.3364, lon: -7.8633 },
+    "Albacete": { lat: 38.9955, lon: -1.8570 },
+    "Girona": { lat: 41.9818, lon: 2.8249 },
+    "Cáceres": { lat: 39.4750, lon: -6.3722 },
+    "Lugo": { lat: 43.0121, lon: -7.5558 },
+    "Santiago de Compostela": { lat: 42.8782, lon: -8.5448 },
+    "Parla": { lat: 40.2350, lon: -3.7675 },
+    "Torrevieja": { lat: 37.9780, lon: -0.6822 },
+    "Mérida": { lat: 38.9181, lon: -6.3444 },
+    "Ciudad Real": { lat: 38.9835, lon: -3.9272 },
+    "Fuengirola": { lat: 36.5417, lon: -4.6220 },
+    "Ceuta": { lat: 35.8894, lon: -5.3213 },
+    "Melilla": { lat: 35.2923, lon: -2.9388 }
+};
 
+const cities = Object.keys(coordinates);
+
+const weatherDataList = []; 
 
 async function getWeather(city, lat, lon) {
     try {
         const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius&windspeed_unit=kmh&timezone=Europe%2FMadrid`);
         const data = await response.json();
-
-        const weatherElement = document.createElement('div');
-        weatherElement.classList.add('weather-card');
-        weatherElement.innerHTML = `
-          <h3>${city}</h3>
-          <img src="src/${data.current_weather.weathercode}.png" onclick="window.location.href='prevision.html?city=${city}&lat=${lat}&lon=${lon}'" />
-          <p>${data.current_weather.temperature}°C</p>
-          <p>Viento: ${data.current_weather.windspeed} km/h, ${getWindDirectionCardinal(data.current_weather.winddirection)}</p>
-        `;
-
-        document.getElementById('weather-list').appendChild(weatherElement);
+        weatherDataList.push({
+            city,
+            lat,
+            lon,
+            temperature: data.current_weather.temperature,
+            windspeed: data.current_weather.windspeed,
+            winddirection: data.current_weather.winddirection,
+            weathercode: data.current_weather.weathercode
+        });
     } catch (error) {
         console.error("Error al obtener el clima:", error);
     }
+}
+
+function showWeather() {
+    const weatherListElement = document.getElementById('weather-list');
+    weatherListElement.innerHTML = '';
+    weatherDataList.forEach(weatherData => {
+        const weatherElement = document.createElement('div');
+        weatherElement.classList.add('weather-card');
+        weatherElement.innerHTML = `
+          <h3>${weatherData.city}</h3>
+          <img src="src/${weatherData.weathercode}.png" onclick="window.location.href='prevision.html?city=${weatherData.city}&lat=${weatherData.lat}&lon=${weatherData.lon}'" />
+          <p>${weatherData.temperature}°C</p>
+          <p>Viento: ${weatherData.windspeed} km/h, ${getWindDirectionCardinal(weatherData.winddirection)}</p>
+        `;
+        weatherListElement.appendChild(weatherElement);
+    });
 }
 
 function getWindDirectionCardinal(winddirection) {
@@ -38,61 +113,22 @@ function getWindDirectionCardinal(winddirection) {
 
 
 async function fetchCitiesWeather() {
-    const coordinates = {
-        'Álava': { lat: 42.8500, lon: -2.6717 },
-        'Albacete': { lat: 38.9967, lon: -1.8583 },
-        'Alicante': { lat: 38.3450, lon: -0.4810 },
-        'Almería': { lat: 36.8340, lon: -2.4637 },
-        'Asturias': { lat: 43.3619, lon: -5.8481 },
-        'Ávila': { lat: 40.6550, lon: -4.6900 },
-        'Badajoz': { lat: 38.8790, lon: -6.9705 },
-        'Burgos': { lat: 42.3417, lon: -3.6975 },
-        'Cáceres': { lat: 39.4752, lon: -6.3720 },
-        'Cádiz': { lat: 36.5263, lon: -6.2886 },
-        'Cantabria': { lat: 43.4623, lon: -3.8095 },
-        'Castellón': { lat: 39.9860, lon: -0.0500 },
-        'Ciudad Real': { lat: 38.9869, lon: -3.9292 },
-        'Córdoba': { lat: 37.8882, lon: -4.7794 },
-        'La Coruña': { lat: 43.3623, lon: -8.4115 },
-        'Cuenca': { lat: 40.0703, lon: -2.1370 },
-        'Girona': { lat: 41.9794, lon: 2.8215 },
-        'Granada': { lat: 37.1774, lon: -3.5986 },
-        'Guadalajara': { lat: 40.6333, lon: -3.1667 },
-        'Huelva': { lat: 37.2615, lon: -6.9497 },
-        'Huesca': { lat: 42.1401, lon: -0.4083 },
-        'Jaén': { lat: 37.7797, lon: -3.7845 },
-        'León': { lat: 42.5987, lon: -5.5670 },
-        'Lleida': { lat: 41.6221, lon: 0.6224 },
-        'Lugo': { lat: 43.0025, lon: -7.5553 },
-        'Madrid': { lat: 40.4168, lon: -3.7038 },
-        'Málaga': { lat: 36.7213, lon: -4.4214 },
-        'Murcia': { lat: 37.9833, lon: -1.1307 },
-        'Navarra': { lat: 42.8125, lon: -1.6454 },
-        'Ourense': { lat: 42.3375, lon: -7.8639 },
-        'Palencia': { lat: 42.0096, lon: -4.5286 },
-        'Las Palmas': { lat: 28.1235, lon: -15.4361 },
-        'Pontevedra': { lat: 42.4336, lon: -8.6453 },
-        'Salamanca': { lat: 40.9704, lon: -5.6630 },
-        'Segovia': { lat: 40.9484, lon: -4.1270 },
-        'Sevilla': { lat: 37.3886, lon: -5.9823 },
-        'Soria': { lat: 41.7633, lon: -2.4636 },
-        'Tarragona': { lat: 41.1189, lon: 1.2445 },
-        'Teruel': { lat: 40.0712, lon: -1.1072 },
-        'Toledo': { lat: 39.8628, lon: -4.0273 },
-        'Valencia': { lat: 39.4699, lon: -0.3763 },
-        'Valladolid': { lat: 41.6523, lon: -4.7237 },
-        'Vizcaya': { lat: 43.2630, lon: -2.9350 },
-        'Zamora': { lat: 41.5034, lon: -5.7448 },
-        'Zaragoza': { lat: 41.6488, lon: -0.8891 }
-    };
 
     const weatherList = document.getElementById('weather-list');
-    weatherList.innerHTML = '';
+    const loadingIndicator = document.getElementById('loading');
 
-    for (const city of cities) {
-        const { lat, lon } = coordinates[city];
-        await getWeather(city, lat, lon);
+    loadingIndicator.innerText = "Cargando datos...";
+
+    weatherList.innerHTML = '';
+    for (var i=0; i<cities.length; i++) {
+        const { lat, lon } = coordinates[cities[i]];
+        await getWeather(cities[i], lat, lon);
+        if(i%5 == 0 && i!=0) 
+            showWeather();
     }
+    showWeather()
+
+    loadingIndicator.innerText = "";
 }
 
 fetchCitiesWeather();
