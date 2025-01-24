@@ -86,12 +86,13 @@ async function getWeather(city, lat, lon) {
     }
 }
 
-function showWeather() {
-    const weatherListElement = document.getElementById('weather-list');
-    weatherListElement.innerHTML = '';
-    weatherDataList.forEach(weatherData => {
-        const weatherElement = document.createElement('div');
-        weatherElement.classList.add('weather-card');
+function showWeather(dataList = weatherDataList) {
+    const weatherListElement = document.getElementById("weather-list");
+    weatherListElement.innerHTML = "";
+
+    dataList.forEach((weatherData) => {
+        const weatherElement = document.createElement("div");
+        weatherElement.classList.add("weather-card");
         weatherElement.innerHTML = `
           <h3>${weatherData.city}</h3>
           <img src="src/${weatherData.weathercode}.png" onclick="window.location.href='prevision.html?city=${weatherData.city}&lat=${weatherData.lat}&lon=${weatherData.lon}'" />
@@ -131,5 +132,29 @@ async function fetchCitiesWeather() {
     loadingIndicator.innerText = "";
 }
 
+function filterByCity() {
+    var filteredDataList = [];
+    var text = document.getElementById("search-input").value.toLowerCase().trim();
+
+    if (text === "") {
+        showWeather(weatherDataList);
+        return;
+    }
+
+    filteredDataList = weatherDataList.filter((element) =>
+        removeAccents(element.city.toLowerCase()).includes(removeAccents(text))
+    );
+
+    showWeather(filteredDataList); 
+}
+
+function removeAccents(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 fetchCitiesWeather();
+
+document.getElementById("search-input").addEventListener("input", () => {
+    filterByCity();
+});
 

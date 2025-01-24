@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: rgb(252, 255, 180);
+    padding:0;
+    margin:0;
 }
 
 @font-face {
@@ -110,4 +110,47 @@ footer {
     font-size: 18px;
     margin: 10px;
     padding: 10px;
+}
+
+button {
+    background-color: #1100ff;
+    color: gold;
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: 'Arial', sans-serif; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: gold;
+    color:#1e00ff;
+    box-shadow: 0 6px 8px rgba(140, 153, 0, 0.15); 
+}
+
+button:active {
+    background-color: rgb(165, 132, 25);
+    color:#ffffff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.download-section {
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
 }
