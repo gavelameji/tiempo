@@ -62,7 +62,7 @@ button.addEventListener('click', () => {
 });
 
 if (city && lat && lon) {
-    document.getElementById('city-name').innerText = `Previsión semanal para ${city}`;
+    document.getElementById('city-name').innerText = `Previsión Semanal Para ${city}`;
     console.log(`Ciudad: ${city}, Latitud: ${lat}, Longitud: ${lon}`);
     getWeatherForecast(city, lat, lon);
 } else {
